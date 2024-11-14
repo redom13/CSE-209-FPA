@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project source="2.7.1" version="1.0">
-This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
-<lib desc="#Wiring" name="0">
+  This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+
+  <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="facing" val="south"/>
       <a name="appear" val="center"/>
@@ -77,7 +78,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <tool name="Text Tool">
       <a name="text" val=""/>
       <a name="font" val="SansSerif plain 12"/>
-      <a name="halign" val="left"/>
+      <a name="halign" val="center"/>
       <a name="valign" val="base"/>
     </tool>
   </lib>
@@ -88,7 +89,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   <lib desc="file#adder32bit.circ" name="11"/>
   <lib desc="file#rounder.circ" name="12"/>
   <lib desc="file#normalizer.circ" name="13"/>
-  <lib desc="file#rightShifterMax.circ" name="14"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -106,7 +106,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <tool lib="6" name="Text Tool">
       <a name="text" val=""/>
       <a name="font" val="SansSerif plain 12"/>
-      <a name="halign" val="left"/>
+      <a name="halign" val="center"/>
       <a name="valign" val="base"/>
     </tool>
     <sep/>
@@ -187,39 +187,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(250,610)" to="(770,610)"/>
     <wire from="(820,150)" to="(900,150)"/>
     <wire from="(170,480)" to="(170,670)"/>
-    <comp loc="(770,450)" name="OutputHandler">
-      <a name="facing" val="south"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(170,480)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Underflow"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="SansSerif bold 12"/>
-    </comp>
-    <comp lib="0" loc="(130,120)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="A"/>
-    </comp>
     <comp lib="13" loc="(820,150)" name="rounded-normalizer"/>
-    <comp lib="0" loc="(60,480)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Overflow"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="SansSerif bold 12"/>
-    </comp>
     <comp lib="10" loc="(290,150)" name="Input"/>
-    <comp lib="13" loc="(670,150)" name="normalizer"/>
-    <comp lib="0" loc="(130,230)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="B"/>
-    </comp>
-    <comp lib="12" loc="(750,160)" name="Rounder"/>
-    <comp lib="11" loc="(470,150)" name="main"/>
     <comp lib="0" loc="(860,240)" name="Splitter">
       <a name="facing" val="south"/>
       <a name="fanout" val="1"/>
@@ -233,8 +202,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit5" val="none"/>
       <a name="bit6" val="none"/>
       <a name="bit7" val="none"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
       <a name="bit10" val="0"/>
       <a name="bit11" val="0"/>
       <a name="bit12" val="0"/>
@@ -265,6 +234,37 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="SansSerif bold 12"/>
     </comp>
+    <comp lib="11" loc="(470,150)" name="main"/>
+    <comp lib="12" loc="(750,160)" name="Rounder"/>
+    <comp lib="0" loc="(170,480)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Underflow"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="SansSerif bold 12"/>
+    </comp>
+    <comp lib="0" loc="(130,120)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(60,480)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Overflow"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="SansSerif bold 12"/>
+    </comp>
+    <comp lib="0" loc="(130,230)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="13" loc="(670,150)" name="normalizer"/>
+    <comp loc="(770,450)" name="OutputHandler">
+      <a name="facing" val="south"/>
+      <a name="labelloc" val="east"/>
+    </comp>
   </circuit>
   <circuit name="OutputHandler">
     <a name="circuit" val="OutputHandler"/>
@@ -278,22 +278,19 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(150,300)" to="(290,300)"/>
     <wire from="(290,230)" to="(290,290)"/>
     <wire from="(290,310)" to="(290,350)"/>
+    <comp lib="0" loc="(150,230)" name="Pin">
+      <a name="width" val="22"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Significand"/>
+    </comp>
     <comp lib="0" loc="(150,300)" name="Pin">
-      <a name="width" val="11"/>
+      <a name="width" val="9"/>
       <a name="tristate" val="false"/>
       <a name="label" val="exponent"/>
     </comp>
-    <comp lib="0" loc="(420,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
-      <a name="label" val="Output"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(150,230)" name="Pin">
-      <a name="width" val="20"/>
+    <comp lib="0" loc="(120,350)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="Significand"/>
+      <a name="label" val="S"/>
     </comp>
     <comp lib="0" loc="(310,300)" name="Splitter">
       <a name="facing" val="west"/>
@@ -319,8 +316,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit17" val="0"/>
       <a name="bit18" val="0"/>
       <a name="bit19" val="0"/>
-      <a name="bit20" val="1"/>
-      <a name="bit21" val="1"/>
+      <a name="bit20" val="0"/>
+      <a name="bit21" val="0"/>
       <a name="bit22" val="1"/>
       <a name="bit23" val="1"/>
       <a name="bit24" val="1"/>
@@ -332,9 +329,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="1"/>
       <a name="bit31" val="2"/>
     </comp>
-    <comp lib="0" loc="(120,350)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="S"/>
+    <comp lib="0" loc="(420,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+      <a name="label" val="Output"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
 </project>
